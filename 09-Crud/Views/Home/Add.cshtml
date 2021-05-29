@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+@model Product
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    @Html.DropDownListFor(a=>a.CategoryID,ViewBag.Categories as IEnumerable<SelectListItem>, new {@class="form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(a=>a.ProductName,new {@class="form-control",placeholder="Ürün adı giriniz" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(a=>a.UnitPrice,new {@class="form-control", placeholder="Ürün fiyatı giriniz" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(a=>a.UnitsInStock,new {@class="form-control", placeholder="Ürün stok adedi giriniz" })
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success">Kaydet</button>
+                </div>
+
+            }
+    </div>
+</div>
+<div class="panel-footer">
+    @if (ViewBag.Message!=null)
+    {
+        <spna class="alert-info">@ViewBag.Message</spna>
+    }
+</div>

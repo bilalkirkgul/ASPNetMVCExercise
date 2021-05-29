@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@model Category
+
+<h2>Default Index</h2>
+
+
+//modeli belirttiğimiz yani direk htmlcss dosyasını model Categoryle ilişkilendirdim ve textboxfor ile de nokta atışı değerleri yakaladım
+
+@using (Html.BeginForm())
+{
+@Html.TextBoxFor(a=>a.CategoryID)<br />
+@Html.TextBoxFor(a=>a.CategoryName)<br />
+
+<button>Kategori Kaydet</button>
+}
+

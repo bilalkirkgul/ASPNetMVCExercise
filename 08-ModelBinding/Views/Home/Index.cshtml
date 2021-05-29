@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@*@using _08_ModelBinding.Models
+@model List<Category>*@
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>
+                        ID
+                    </td>
+                    <td>Category Name</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Category item in Model)
+                {
+                    <tr>
+                        <th>@item.CategoryID</th>
+                        <th>@item.CategoryName</th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
