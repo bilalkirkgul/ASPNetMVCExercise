@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<p>Parametre alan yötem ile veri, deger yakalayıp kontrol etme yöntemi</p>
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("userName")
+    <br />
+    @Html.TextBox("password")
+    <br />
+    <button class="btn btn-success">Giriş Yap</button>
+}
+
+<span>@ViewBag.Message</span>

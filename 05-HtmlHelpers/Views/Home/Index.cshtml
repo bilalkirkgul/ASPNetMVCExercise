@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@*HtmlHelper*@
+@*html yapılarını HtmlHelper classsına extension tanımlanmış metotlar ile oluşturabilirsiniz.*@
+
+<div class="container" style="margin-top:50px;">
+    <div class="row">
+
+        <a href="Index1">Home Index1 sayfasına git</a><br />
+        <a href="Index2">Home Index2 sayfasına git</a><br />
+        <a href="/Default/Index">Default Index sayfasına git</a><br />
+        <hr />
+        @Html.ActionLink("Home Index1 sayfasına git","Index1")
+    <br />
+        @Html.ActionLink("Home Index2 sayfasına git","Index2")
+    <br />
+        @Html.ActionLink("Default Index sayfasına git","Index","Default")
+
+    </div>
+
+</div>
+

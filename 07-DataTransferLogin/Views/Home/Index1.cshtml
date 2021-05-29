@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index1";
+}
+
+<p>Request.Form[] Yöntemi kullanımı</p>
+
+@using (Html.BeginForm())
+            {
+    @Html.TextBox("userName")<br />
+    @Html.TextBox("password")<br />
+
+    <button>Giriş Yap</button>
+            }
+
+<span>@ViewBag.Message</span>

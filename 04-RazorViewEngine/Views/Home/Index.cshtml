@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Home Index</h2>
+
+@*Razor View Engine => C# kodlarını view üzerinde çalıştırmak için kullandığımız bir yapıdır*@
+
+
+@{
+    string ad = "Bilal";
+    string soyad = "Kırkgül";
+}
+
+<span>@ad</span>
+<br />
+<span>@soyad</span>
+<br />
+<hr />
+
+<span>@ad @soyad </span>
+<br />
+<span>@(ad +" "+soyad)</span>
+<br />
+<hr />
+
+@{ var tamAd = ad + " " + soyad;}
+
+<span>@tamAd</span>
+<br />
+<hr />
+
+@{
+    List<string> names = new List<string> { "Bilal", "Burak", "Mert", "Ahmet", "Emin" };
+
+    <ul>
+
+        @foreach (string item in names)
+        {
+            <li>@item</li>
+        }
+    </ul>
+
+
+}
+<hr />
+
+<p>Sınıfımızdaki öğrencileri sırasız bir şekilde listeleyelim bu listenin bir elemanı italik bir elemanı bold olarak yazılsın</p>
+
+@{
+    string[] students = { "Burak", "Bilal", "Mert", "Murat", "Cem", "Bekir", "Mert", "Arda", "Ahmet", "Emincan" };
+
+    <ul>
+        @for (int i = 0; i < students.Length; i++)
+        {
+            if (i % 2 == 0)
+            {
+                <li><i>@students[i]</i></li>
+            }
+            else
+            {
+                <li><b>@students[i]</b></li>
+            }
+        }
+    </ul>
+
+}
+
+<hr />
+<a href="Index1">Index1 sayfasına git</a>
+<br />
+<a href="Index2">Index2 sayfasına git</a>
+<br />
+<a style="background-color:aqua; color:black;" href="/Default/Index">Default Index sayfasına git</a>
+
+<!--Farklı bir controllerin index sayfasına gitmek istiyorsan önce controller sonra indexi seçmelisin-->

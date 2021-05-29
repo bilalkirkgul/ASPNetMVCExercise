@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index1";
+}
+
+<h2>Home Index1</h2>
+
+<a href="/Default/Index">Default Index sayfasına git</a>
+<br />
+<a href="Index2">Home Index2 sayfasına git</a>
+<br />
+<a href="Index">Home Index sayfasına git </a>
+<br />
+<hr />
+
+@{
+    List<string> sehirler = new List<string>() { "istanbul", "ankara", "bursa", "izmir" };
+    <ul>
+        @foreach (string item in sehirler)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}

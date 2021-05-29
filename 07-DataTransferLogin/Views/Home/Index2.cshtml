@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+<p>FormCollection Yöntemi collection.get()</p>
+
+@using (Html.BeginForm())
+            {
+                @Html.TextBox("userName")<br />
+                @Html.TextBox("password")<br />
+                <button>Giriş Yap</button>
+            }
+
+<span>@ViewBag.Message</span>
