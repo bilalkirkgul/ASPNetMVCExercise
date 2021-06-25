@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model List<Product>
+<div class="container">
+    <div class="col-lg-12">
+        <div class="row">
+            @foreach (Product item in Model)
+            {
+                @Html.Partial("_SingleProductPartial",item)
+            }
+        </div>
+    </div>
+</div>

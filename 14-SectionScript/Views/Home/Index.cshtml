@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<button id="Tikla">Tıkla</button>
+<br />
+<button onclick="Getir()">Getir</button>
+<hr />
+<span id="metin"></span>
+
+@section scripts{
+    <script>
+        function Getir() {
+            document.getElementById("metin").innerText = "getir butonu tıklandı";
+        }
+        $("#Tikla").click(function () {
+            alert("Tikla butonu çağrıldı");
+
+        })
+    </script>
+    
+    }
