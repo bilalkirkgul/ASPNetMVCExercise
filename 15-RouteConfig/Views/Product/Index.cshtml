@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@model List<Product> 
+
+<ul>
+    @foreach (Product item in Model)
+    {
+        <li><a href="@item.ProductName--p--@item.ProductID">@item.ProductName</a></li>
+    }
+</ul>
+
