@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div>
+    <ul id="personel">
+
+    </ul>
+
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "/Home/GetPersonel",
+                type: "GET",
+                success: function (response) {
+                    $.each(response, function (key, value) {
+                        var item = "<li>" + value.FirstName + " " + value.LastName + "</li>";
+                        $("#personel").append(item);
+                    })
+                }
+
+            })
+
+        })
+    </script>
+    
+    }

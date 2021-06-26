@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <span id="myData"></span>
+</div>
+<button class="btn btn-success" id="veriGetir">Veri Çağır</button>
+
+
+@section scripts{
+    
+    <script>
+        $("#veriGetir").click(function () {
+
+            $.ajax({
+                type: "GET",
+                url: "/Home/GetData",
+                success: function (data) {
+                    $("#myData").append(data)
+                }
+
+            });
+
+        });
+    </script>
+    }

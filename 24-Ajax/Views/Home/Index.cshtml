@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="form-group">
+                    <input type="text" id="categoryName" name="CategoryName" class="form-control" placeholder="Ketegori Adı Giriniz" />
+                </div>
+                <div class="form-group">
+                    <input type="text" id="description" name="Description" class="form-control" placeholder="Açıklama Giriniz" />
+                </div>
+
+                <div class="form-group">
+                    <input type="button" id="btnSave" class="form-control btn btn-info" value="KAYDET" />
+                </div>
+            </div>
+            <div class="panel-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+
+        $(document).ready(function () {
+            GetCategories();
+        })
+        function GetCategories() {
+            $.ajax({
+                url: "/Home/GetCategories",
+                type: "GET",
+                success: function (response) {
+                    $(".panel-body").html(response);
+                }
+
+            });
+        }
+        $("#btnSave").click(function () {
+            var cat = {
+                "CategoryName": $("$categoryName").val(),
+                "Description": $("#description").val(),
+                "CategoryID": 0
+            };
+            $.ajax({
+                url: "/Home/Add",
+                type: "GET",
+                data: cat,
+                success: function (response) {
+                    if (response=="ok") {
+                        alert("Kategori eklendi")
+                        GetCategories()
+                    } else {
+                        alert("ekleme işlemi başarısız oldu")
+                    }
+                }
+            })
+
+
+        })
+       
+
+    </script>
+
+}
+

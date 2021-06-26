@@ -1,0 +1,22 @@
+﻿
+@model List<Category>
+
+
+<table class="tabel table-hover">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Category item in Model)
+        {
+            <tr>
+                <td>@item.CategoryName</td>
+                <td>@item.Description</td>
+                <td><button class="btn btn-danger">Delete</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
