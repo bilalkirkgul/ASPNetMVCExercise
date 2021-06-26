@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model List<Category>
+
+<h2>Kategori Listesi</h2>
+
+<ul>
+   @foreach (Category item in Model)
+   {
+       <li class="list-group-item"><a href="/Home/Index2?catId=@item.CategoryID">@item.CategoryName</a></li>
+   }
+</ul>

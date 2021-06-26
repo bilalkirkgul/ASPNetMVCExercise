@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+@model List<Product>
+<h2>Ürün Listesi</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>CategoryId</th>
+            <th>ProductName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product item in Model)
+        {
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.ProductName</td>
+        </tr>
+        }
+    </tbody>
+
+
+</table>
