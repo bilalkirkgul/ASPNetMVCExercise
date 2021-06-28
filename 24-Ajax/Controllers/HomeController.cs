@@ -29,32 +29,22 @@ namespace _24_Ajax.Controllers
         {
             try
             {
-
-                if (ModelState.IsValid)
-                {
-                    context.Categories.Add(category);
-                    context.SaveChanges();
-                    return Json("ok", JsonRequestBehavior.AllowGet);
-                }
-                else
-                {
-                    var Message = "Kayıt İşlemi gerçekleşmedi";
-                    return Json(Message,JsonRequestBehavior.AllowGet);
-                }
+                context.Categories.Add(category);
+                context.SaveChanges();
+                return Json("ok", JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
-
                 return Json(ex, JsonRequestBehavior.AllowGet);
             }
-           
+
         }
 
-        public JsonResult Delete(int catId)
+        public JsonResult Delete(int id)
         {
             try
             {
-                Category category = context.Categories.Where(a => a.CategoryID == catId).SingleOrDefault();
+                Category category = context.Categories.Find(id);
                 context.Categories.Remove(category);
                 context.SaveChanges();
                 return Json("ok", JsonRequestBehavior.AllowGet);

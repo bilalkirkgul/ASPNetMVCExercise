@@ -2,11 +2,12 @@
 @model List<Category>
 
 
-<table class="tabel table-hover">
+<table class="tabel table-hover col-lg-12">
     <thead>
         <tr>
             <th>Category Name</th>
             <th>Description</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -15,7 +16,7 @@
             <tr>
                 <td>@item.CategoryName</td>
                 <td>@item.Description</td>
-                <td><button class="btn btn-danger">Delete</button></td>
+                <td><button class="btn btn-danger" onclick="Delete(@item.CategoryID)">Delete</button></td>
             </tr>
         }
     </tbody>

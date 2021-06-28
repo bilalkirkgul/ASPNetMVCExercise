@@ -13,9 +13,8 @@
                     <input type="text" id="description" name="Description" class="form-control" placeholder="Açıklama Giriniz" />
                 </div>
 
-                <div class="form-group">
-                    <input type="button" id="btnSave" class="form-control btn btn-info" value="KAYDET" />
-                </div>
+                <button class="btn btn-success btn-block" id="btnSave">Add</button>
+
             </div>
             <div class="panel-body">
             </div>
@@ -42,7 +41,7 @@
         }
         $("#btnSave").click(function () {
             var cat = {
-                "CategoryName": $("$categoryName").val(),
+                "CategoryName": $("#categoryName").val(),
                 "Description": $("#description").val(),
                 "CategoryID": 0
             };
@@ -51,18 +50,38 @@
                 type: "GET",
                 data: cat,
                 success: function (response) {
-                    if (response=="ok") {
+                    if (response == "ok") {
                         alert("Kategori eklendi")
-                        GetCategories()
+                        GetCategories();
                     } else {
-                        alert("ekleme işlemi başarısız oldu")
+                        console.log(response)
                     }
                 }
             })
 
 
         })
-       
+
+        function Delete(id) {
+            $.ajax({
+
+                url: "/Home/Delete/" + id,
+                type: "GET",
+                success: function (response) {
+                    if (response == "ok") {
+                        alert("kategori silindi");
+                        GetCategories();
+                    } else {
+                        console.error(response)
+                        alert("kategori silme işlemi başarısız oldu");
+                    }
+                },
+                error: function () {
+                    alert("istek başarısız oldu");
+                }
+            })
+        }
+
 
     </script>
 
