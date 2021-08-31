@@ -10,16 +10,12 @@
         <tr>
             <th>CategoryId</th>
             <th>ProductName</th>
+            <th>UnitPrice</th>
+            <th>UnitInStock</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (Product item in Model)
-        {
-        <tr>
-            <td>@item.CategoryID</td>
-            <td>@item.ProductName</td>
-        </tr>
-        }
+    @Html.Partial("_productList",Model)
     </tbody>
 
 

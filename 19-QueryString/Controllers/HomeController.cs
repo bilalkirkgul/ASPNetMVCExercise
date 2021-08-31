@@ -21,8 +21,10 @@ namespace _19_QueryString.Controllers
             return View(categories);
         }
 
-        public ActionResult Index2()
+        public ActionResult Index2(int? catId)
         {
+            List<Product> products = context.Products.Where(a => a.CategoryID == catId).ToList();
+            return View(products);
         }
     }
 }
