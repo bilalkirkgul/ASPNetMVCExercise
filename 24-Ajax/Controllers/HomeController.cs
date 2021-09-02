@@ -18,7 +18,8 @@ namespace _24_Ajax.Controllers
         public ActionResult GetCategories()
         {
             List<Category> categories = context.Categories.ToList();
-            return View("_categoryList", categories);
+            return PartialView("_categoryList", categories);
+         
         }
 
         public ActionResult Index()
