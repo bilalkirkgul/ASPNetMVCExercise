@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+<style>
+    p{
+        height:25px;
+        width:250px;
+        color:red;
+       
+    }
+</style>
+
+<p style="background-color:yellow; color:blueviolet;" id="sayac" value="0"></p>
+
+<br /><br />
+
+<button class="btn btn-primary" onclick="Arti()">+</button>
+<button class="btn btn-warning" id="Azalt" >-</button>
+
+@section scripts{
+    
+    <script>IDBCursor
+
+        var value = 0;
+
+        function Arti() {
+            value++;
+            document.getElementById("sayac").innerText = value;
+        }
+        $("#Azalt").click(function () {
+
+            if (value!=0) {
+                value--;
+                document.getElementById("sayac").innerText = value;
+            } else {
+                document.getElementById("sayac").innerText = "sayac ( - ) haneye inemez";
+            }
+
+        });
+
+    </script>
+
+    }

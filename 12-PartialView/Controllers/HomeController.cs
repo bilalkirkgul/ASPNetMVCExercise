@@ -31,5 +31,6 @@ namespace _12_PartialView.Controllers
         {
             return View();
         }
+      
     }
 }

@@ -28,6 +28,12 @@ namespace _06_DataTransfer.Controllers
 
             products.AddRange(newProducts);
 
+            ICollection<Product> products1 = new List<Product>()
+            {
+                new Product{ProductId=8,Name="ICollection"}
+            };
+            products.AddRange(products1);
+
             ViewBag.products = products;
             ViewData["urunler"] = products;
             TempData["products"] = products;

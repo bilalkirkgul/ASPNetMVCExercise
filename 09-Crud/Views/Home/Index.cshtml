@@ -33,7 +33,8 @@
                             <td>@item.ProductID</td>
                             <td>@item.ProductName</td>
                             <td>@item.UnitPrice</td>
-                            <th>@Html.ActionLink("Update","Update",new {productID=item.ProductID },new {@class="btn btn-warning btn-block" })</th>
+                          <td><a href="/Home/Update?productID=@item.ProductID">Update</a></td>
+                            @*<th>@Html.ActionLink("Update","Update",new {productID=item.ProductID },new {@class="btn btn-warning btn-block" })</th>*@
                             <th>@Html.ActionLink("Delete","Delete",new { productID=item.ProductID},new {@class="btn btn-danger btn-block" })</th>
                         </tr>
                     }
