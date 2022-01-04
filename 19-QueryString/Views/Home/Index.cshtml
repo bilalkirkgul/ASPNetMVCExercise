@@ -7,8 +7,10 @@
 <h2>Kategori Listesi</h2>
 
 <ul>
-   @foreach (Category item in Model)
-   {
-       <li class="list-group-item"><a href="/Home/Index2?catId=@item.CategoryID">@item.CategoryName</a></li>
-   }
+    @foreach (Category item in Model)
+    {
+        @*<li class="list-group-item"><a href="/Home/Index2?catId=@item.CategoryID">@item.CategoryName</a></li>*@
+        @*<li class="list-group-item"><a href="@Url.Action("Index2","Home",new {catId=item.CategoryID })">@item.CategoryName</a></li>*@
+        <li>@Html.ActionLink(item.CategoryName,"Index2","Home",new {catId=item.CategoryID },null)</li>
+    }
 </ul>

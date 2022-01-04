@@ -10,7 +10,7 @@ namespace _21_Application.Controllers
     {
         public ActionResult Index()
         {
-            //online işlemleri görmek için global.asax.cs'de method tanıomlaması yapıldı
+            //online işlemleri görmek için global.asax.cs'de method tanımlaması yapıldı
             return View();
         }
 

@@ -11,7 +11,7 @@
             <p class="card-text">
                 @Model.UnitPrice
             </p>
-            <a href="/Home/Index2" class="btn btn-primary">Sepete At</a>
+            <a href="@Url.Action("Index2","Home",new { @Model.Name })" class="btn btn-primary">Sepete At</a>
         </div>
     </div>
 </div>

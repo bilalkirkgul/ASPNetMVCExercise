@@ -26,8 +26,8 @@ namespace _15_RouteConfig
                 );
 
             routes.MapRoute(
-                name: "Anasayfa",
-                url: "Anasayfa",
+                name: "Bilal",
+                url: "Bilal",
                 defaults:new 
                 { controller = "Product",
                     action = "Index" }

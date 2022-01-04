@@ -5,4 +5,8 @@
 
 @* ? işareti ile farklı bir sayfaya geçiş esnasında parametre alanına değer gönderebiliyoruz *@
 
-<a href="/Home/Index2?name=Bilal&surname=Kırkgül">Index2 sayfasına git</a>
+@*<a href="/Home/Index2?name=Bilal&surname=Kırkgül">Index2 sayfasına git</a>*@
+
+<a href="@Url.Action("Index2","Home",new {name="Yusuf",surname="Ay"})">Index2 sayfasına git</a> <br />
+
+@Html.ActionLink("Index2 Sayfasına git","Index2","Home",new { name="alin Doğa", surname="Yiğit"},new {@class="btn btn-success" })

@@ -25,7 +25,7 @@ namespace _16_RouteConfig
                );
             routes.MapRoute(
              name: "Contact",
-             url: "Iletisim",
+             url: "Iletisim", //urlden çağrılacak isim
               defaults: new { controller = "Home", action = "Iletisim", id = UrlParameter.Optional }
              );
             routes.MapRoute(
@@ -33,6 +33,10 @@ namespace _16_RouteConfig
              url: "Galeri",
               defaults: new { controller = "Home", action = "Galeri", id = UrlParameter.Optional }
              );
+
+
+            //bu alan proje ayağa kalktığında hiç bir alan tetiklenmezse bile çalışacak olan kımı temsil eder
+
 
             //routes.MapRoute(
             //    name: "Default",

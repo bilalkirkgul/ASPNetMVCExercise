@@ -45,7 +45,7 @@ namespace _20_Cookie.Controllers
             if (Request.Cookies.AllKeys.Contains("login"))
             {
                 HttpCookie cookie = Request.Cookies["login"];
-                cookie.Expires = DateTime.Now.AddDays(-1);
+                cookie.Expires = DateTime.Now.AddDays(-1);//Son gün silme işlemi
                 Response.Cookies.Add(cookie);
             }
             return RedirectToAction("Login");
