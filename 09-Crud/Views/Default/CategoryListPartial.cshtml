@@ -1,0 +1,10 @@
+﻿
+@model List<Category>
+
+<ul class="list-group">
+    @foreach (Category item in Model)
+    {
+        @*<li class="list-group-item"> @Html.ActionLink(item.CategoryName, "Index","Home", new { catID = item.CategoryID })</li>*@
+        <li class="list-group-item"><a href="@Url.Action("Index","Home",new {catID = item.CategoryID })">@item.CategoryName</a></li>
+    }
+</ul>

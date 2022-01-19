@@ -13,11 +13,17 @@
         <a href="Index2">Home Index2 sayfasına git</a><br />
         <a href="/Default/Index">Default Index sayfasına git</a><br />
         <hr />
-        @Html.ActionLink("Home Index1 sayfasına git","Index1")
-    <br />
-        @Html.ActionLink("Home Index2 sayfasına git","Index2")
-    <br />
-        @Html.ActionLink("Default Index sayfasına git","Index","Default")
+        @Html.ActionLink("Home Index1 sayfasına git", "Index1")
+        <br />
+        @Html.ActionLink("Home Index2 sayfasına git", "Index2")
+        <br />
+        @Html.ActionLink("Default Index sayfasına git", "Index", "Default")
+        <br />
+        <hr />
+
+        <a href="@Url.Action("Index")">Home Index1 sayfasına git</a><br />
+        <a href="@Url.Action("Index2")">Home Index2 sayfasına git</a><br />
+        <a href="@Url.Action("Index","Default")">Default Index sayfasına git</a><br />
 
     </div>
 

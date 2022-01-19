@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DbTools\DbInstance.cs" />
     <Compile Include="Global.asax.cs">
@@ -239,6 +240,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Add.cshtml" />
     <Content Include="Views\Home\Update.cshtml" />
+    <Content Include="Views\Default\CategoryListPartial.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Home\_ProductPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

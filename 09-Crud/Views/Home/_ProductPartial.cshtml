@@ -1,0 +1,13 @@
+﻿@model Product
+
+<tr>
+    <td>@Model.ProductID</td>
+    <td>@Model.ProductName</td>
+    <td>@Model.UnitPrice</td>
+    <td>@Model.Category.CategoryName</td>
+    <td>@Model.Supplier.CompanyName</td>
+    @*<td><a href="/Home/Update?productID=@Model.ProductID" class="btn btn-warning">Update</a></td>*@
+    <td><a href="@Url.Action("Update","Home",new { productID = Model.ProductID })" class="btn btn-warning">Update Format2</a></td>
+    @*<th>@Html.ActionLink("Update","Update",new {productID=item.ProductID },new {@class="btn btn-warning btn-block" })</th>*@
+    <th>@Html.ActionLink("Delete", "Delete", new { productID = Model.ProductID }, new { @class = "btn btn-danger btn-block" })</th>
+</tr>

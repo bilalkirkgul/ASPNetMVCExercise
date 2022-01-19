@@ -19,6 +19,7 @@ namespace _09_Crud.Controllers
 
         void GetCategories()
         {
+            //Bu yöntemle View içersine Name ve Id gönderimi sağlıyoruz. Bize bu kolaylığı selectListItem yapısı sağlıyor.
             List<SelectListItem> selectListItems = new List<SelectListItem>();
             foreach (Category item in context.Categories)
             {
@@ -49,17 +50,21 @@ namespace _09_Crud.Controllers
         public ActionResult Add()
         {
             GetCategories();//Add ekranında get ile tüm kategori gruplarını çekiyoruz. listeleme yapıyoruz. o yüzden bu methodu buraya yazma ihtiyacı duyduk
+
+            //Bu yapı ise bize View tarafında   @Html.DropDownList("Suppliers", null, "Seçim Yapınız", new { @class = "form-control" }) yapıyı kullanmamızı sağlıyor. fakat Id yakalaması için parametre kısmını değişken tanımlaması yapmamız gerekiyor. View tarafından string değer dönüyor. Nesne içierisinde değer almıyor. ekstra olarak nesneye değeri bizim atmamız gerekiyor. (61.satır ve 67. satırda belirtildi) 
+            ViewBag.Suppliers = new SelectList(context.Suppliers, "SupplierID", "CompanyName"); 
+
             return View();
         }
 
         [HttpPost]
-        public ActionResult Add(Product product)
-        {
-            GetCategories();
+        public ActionResult Add(Product product, string Suppliers)
+        {           
             try
             {
                 if (ModelState.IsValid)//true 
                 {
+                    product.SupplierID = int.Parse(Suppliers);
                     context.Products.Add(product);
                     context.SaveChanges();
                     return RedirectToAction("Index");
@@ -81,7 +86,12 @@ namespace _09_Crud.Controllers
         [HttpGet]
         public ActionResult Update(int? productID)
         {
+
+            //Bu iki yapı bize View'de Kategori ve tedarikçileri göstermeyi sağlıyor..
             GetCategories();
+            ViewBag.Suppliers = new SelectList(context.Suppliers.ToList(), "SupplierID", "CompanyName");
+
+
             if (productID.HasValue)
             {
                 Product guncellenecek = context.Products.Find(productID);
@@ -90,9 +100,8 @@ namespace _09_Crud.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public ActionResult Update(Product product)
-        {
-            GetCategories();
+        public ActionResult Update(Product product, string Suppliers)
+        {            
             Product newProduct = null;
             try
             {
@@ -100,6 +109,7 @@ namespace _09_Crud.Controllers
                 {
                     newProduct = context.Products.Find(product.ProductID);
                     //newProduct = context.Products.Where(a => a.ProductID == product.ProductID).SingleOrDefault();//Tek Kayıt Dönme işlemi
+                    newProduct.SupplierID = int.Parse(Suppliers);
                     context.Entry(newProduct).CurrentValues.SetValues(product);
                     context.SaveChanges();
                     return RedirectToAction("Index");
