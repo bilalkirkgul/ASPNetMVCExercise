@@ -108,10 +108,10 @@ namespace _09_Crud.Controllers
                 if (ModelState.IsValid)
                 {
                     newProduct = context.Products.Find(product.ProductID);
-                    //newProduct = context.Products.Where(a => a.ProductID == product.ProductID).SingleOrDefault();//Tek Kayıt Dönme işlemi
-                    newProduct.SupplierID = int.Parse(Suppliers);
-                    context.Entry(newProduct).CurrentValues.SetValues(product);
-                    context.SaveChanges();
+                    //newProduct = context.Products.Where(a => a.ProductID == product.ProductID).SingleOrDefault();//Tek Kayıt Dönme işlemi                   
+                    context.Entry(newProduct).CurrentValues.SetValues(product); //Viewden gelen Model ile databasede yer alan verileri değiştirdik.
+                    newProduct.SupplierID = int.Parse(Suppliers); //Paramatreden yakaladığımız supplierId güncellemesi yaptık
+                    context.SaveChanges(); //database yansımasını aldık
                     return RedirectToAction("Index");
                 }
                 else
